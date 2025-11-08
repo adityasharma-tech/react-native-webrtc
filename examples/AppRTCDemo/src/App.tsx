@@ -207,6 +207,7 @@ export default function App() {
     setShowScanner(type);
   }
 
+<<<<<<< HEAD
   async function handleWebRTCConnection(stream: MediaStream) {
     let peerConnection = new RTCPeerConnection(peerConstraints);
     stream.getTracks().forEach(track => peerConnection.addTrack(track, stream));
@@ -300,6 +301,17 @@ export default function App() {
       ) : (
         <CodeScanner onCodeScanned={handleOnCodeScan} />
       )}
+=======
+  async function handleStartScreenShare() {}
+
+  async function handleStartMediaSharing() {}
+
+  return (
+    <View style={appStyleSheet.containerStyle}>
+      {showScanner == null ? <GenerateIpQRCode /> : <View>
+        
+        </View>}
+>>>>>>> de7196c4516a85c62f640d504a43b939f9b6d6c6
       <MyButton
         onPress={() => handleScanQrCode('screen')}
         buttonStyle={appStyleSheet.screenShareBtnStyle}
@@ -326,6 +338,7 @@ const appStyleSheet = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+<<<<<<< HEAD
   previewContainerStyle: {
     width: 240,
     height: 420,
@@ -334,6 +347,8 @@ const appStyleSheet = StyleSheet.create({
     borderRadius: 20,
     overflow: 'hidden',
   },
+=======
+>>>>>>> de7196c4516a85c62f640d504a43b939f9b6d6c6
   screenShareBtnStyle: {
     marginVertical: 20,
     backgroundColor: '#FFDF20',
@@ -342,7 +357,10 @@ const appStyleSheet = StyleSheet.create({
     marginVertical: 20,
     backgroundColor: '#BBF451',
   },
+<<<<<<< HEAD
   rtcViewStyle: {
     flex: 1,
   },
+=======
+>>>>>>> de7196c4516a85c62f640d504a43b939f9b6d6c6
 });

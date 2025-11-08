@@ -28,6 +28,7 @@ class MainApplication : Application(), ReactApplication {
   override fun onCreate() {
     super.onCreate()
     loadReactNative(this)
+<<<<<<< HEAD
     val options = WebRTCModuleOptions.getInstance()
     options.enableMediaProjectionService = true
 		val audioAttributes = AudioAttributes.Builder()
@@ -37,5 +38,7 @@ class MainApplication : Application(), ReactApplication {
 		options.audioDeviceModule = JavaAudioDeviceModule.builder(this)
 			.setAudioAttributes(audioAttributes)
 			.createAudioDeviceModule()
+=======
+>>>>>>> de7196c4516a85c62f640d504a43b939f9b6d6c6
   }
 }
