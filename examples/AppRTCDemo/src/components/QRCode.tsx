@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
 import { NetworkInfo } from 'react-native-network-info';
-import QRCode from 'react-native-qrcode-svg';
+import QRCode from 'react-native-qrcode-styled';
 
 export default function GenerateIpQRCode() {
   const [myIpv4Addr, setMyIpv4Addr] = React.useState<string | null>(null);
@@ -14,7 +14,7 @@ export default function GenerateIpQRCode() {
     NetworkInfo.getIPV4Address().then(ipv4Address => {
       if (!ipv4Address)
         return console.error('[error]: failed to get ipv4 address.');
-      setMyIpv4Addr(ipv4Address);
+      setMyIpv4Addr('http://'+ipv4Address+':5645');
     });
   }
   return (
@@ -22,10 +22,12 @@ export default function GenerateIpQRCode() {
       <View>
         {myIpv4Addr && (
           <QRCode
+            color="white"
             size={250}
-            color="black"
-            backgroundColor="white"
-            value={myIpv4Addr}
+            pieceLiquidRadius={5}
+            pieceBorderRadius={2}
+            style={{ backgroundColor: 'black' }}
+            data={myIpv4Addr}
           />
         )}
       </View>
@@ -39,7 +41,7 @@ export default function GenerateIpQRCode() {
 const qrCodeStylesheet = StyleSheet.create({
   ipAddrTextStyle: {
     color: 'white',
-    fontSize: 28,
+    fontSize: 18,
     fontWeight: 'bold',
     marginTop: 10,
     textAlign: 'center'
